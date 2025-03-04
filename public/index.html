@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Product Card 🛒👨🏻‍💻</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        width: 490px;
+        text-align: center;
+        height: 490px;
+        display: flex;
+      }
+      .card img {
+        width: 100%;
+        height: auto;
+      }
+      .card-content {
+        padding: 15px;
+      }
+      .card-title {
+        font-size: 1.5em;
+        margin: 0.5em 0;
+        color: #333;
+      }
+      .card-description {
+        font-size: 1em;
+        color: #666;
+        margin-bottom: 1em;
+      }
+      .card-price {
+        font-size: 1.2em;
+        color: #e67e22;
+        margin-bottom: 1em;
+      }
+      .card-old-price {
+        font-size: 0.9em;
+        color: #999;
+        text-decoration: line-through;
+        margin-right: 10px;
+      }
+      .card-rating {
+        margin-bottom: 1em;
+      }
+      .card-rating span {
+        color: #f1c40f;
+        font-size: 1.2em;
+      }
+      .card-button {
+        display: inline-block;
+        padding: 10px 20px;
+        margin-bottom: 15px;
+        background-color: #e67e22;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+      .card-button:hover {
+        background-color: #d35400;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <img
+        src="https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=600"
+        alt="Yellow Hoodie" />
+      <div class="card-content">
+        <h2 class="card-title">**Yellow Hoodie**</h2>
+        <p class="card-description">
+          Brighten up your wardrobe with this vibrant yellow hoodie. Made from
+          soft, fleece-lined fabric, it offers warmth and comfort. The relaxed
+          fit and adjustable drawstring hood make it perfect for casual wear.
+        </p>
+        <div class="card-price">
+          <span class="card-old-price">$200</span>
+          $180
+        </div>
+        <div class="card-rating">
+          <span>★★★★☆</span>
+        </div>
+        <a href="#" class="card-button">Add to Cart</a>
+      </div>
+    </div>
+  </body>
+</html>

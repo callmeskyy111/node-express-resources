@@ -1,0 +1,458 @@
+{
+  
+  "products":[
+  {
+    "_id": 1,
+    "title": "Long Sleeve Jacket",
+    "isNew": true,
+    "oldPrice": "200",
+    "price": 150,
+    "description": "A stylish and comfortable long sleeve jacket, perfect for cool weather and casual outings.",
+    "category": "women",
+    "image": "https://images.pexels.com/photos/2584269/pexels-photo-2584269.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "rating": 4
+  },
+  {
+    "_id": 2,
+    "title": "Jacket with Woolen Hat",
+    "isNew": true,
+    "oldPrice": "70",
+    "price": 65,
+    "description": "Stay warm and fashionable with this cozy jacket paired with a matching woolen hat.",
+    "category": "women",
+    "image": "https://images.pexels.com/photos/2681751/pexels-photo-2681751.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "rating": 3
+  },
+  {
+    "_id": 3,
+    "title": "Compact Fashion T-Shirt",
+    "isNew": true,
+    "oldPrice": "70",
+    "price": 55.99,
+    "description": "A soft and breathable t-shirt with a sleek design, perfect for daily wear.",
+    "category": "women",
+    "image": "https://images.pexels.com/photos/2752045/pexels-photo-2752045.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "rating": 3
+  },
+  {
+    "_id": 4,
+    "title": "Blue Jeans",
+    "isNew": true,
+    "oldPrice": "70",
+    "price": 50,
+    "description": "Classic blue jeans with a modern fit, suitable for both casual and semi-formal occasions.",
+    "category": "women",
+    "image": "https://images.pexels.com/photos/1485031/pexels-photo-1485031.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "rating": 3
+  },
+  {
+    "_id": 5,
+    "title": "Skirt with Full Setup",
+    "isNew": true,
+    "oldPrice": "800",
+    "price": 695,
+    "description": "An elegant skirt set featuring a coordinated top and bottom for a chic look.",
+    "category": "women",
+    "image": "https://images.pexels.com/photos/1631181/pexels-photo-1631181.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "rating": 5
+  },
+  {
+    "_id": 6,
+    "title": "Yellow Hoodie",
+    "isNew": false,
+    "oldPrice": "200",
+    "price": 180,
+    "description": "A trendy yellow hoodie designed for comfort and warmth, great for layering.",
+    "category": "men",
+    "image": "https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "rating": 4
+  },
+  {
+    "_id": 7,
+    "title": "Black T-Shirt for Women",
+    "isNew": false,
+    "oldPrice": "60",
+    "price": 20,
+    "description": "A stylish black t-shirt that pairs well with jeans, skirts, or shorts.",
+    "category": "women",
+    "image": "https://images.pexels.com/photos/2010812/pexels-photo-2010812.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "rating": 2
+  },
+  {
+    "_id": 8,
+    "title": "Gown with Red Velvet",
+    "isNew": false,
+    "oldPrice": "500",
+    "price": 350,
+    "description": "A luxurious red velvet gown that exudes elegance and sophistication.",
+    "category": "women",
+    "image": "https://images.pexels.com/photos/2233703/pexels-photo-2233703.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "rating": 3
+  },
+  {
+    "_id": 9,
+    "title": "Pink Beauty",
+    "isNew": false,
+    "oldPrice": "150",
+    "price": 100,
+    "description": "A charming pink dress with a delicate touch, perfect for special occasions.",
+    "category": "women",
+    "image": "https://images.pexels.com/photos/2065195/pexels-photo-2065195.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "rating": 3
+  },
+  {
+    "_id": 10,
+    "title": "Jean's Stylish Jacket",
+    "isNew": false,
+    "oldPrice": "250",
+    "price": 245,
+    "description": "A rugged yet stylish denim jacket that adds an edgy touch to any outfit.",
+    "category": "men",
+    "image": "https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "rating": 5
+  },
+  {
+    "_id": 11,
+    "title": "Jamdani Saree",
+    "isNew": false,
+    "oldPrice": "1000",
+    "price": 800,
+    "description": "A beautifully woven traditional Jamdani saree, perfect for festive occasions and cultural events. Made with premium fabric, offering both elegance and comfort.",
+    "category": "women",
+    "image": "https://images.pexels.com/photos/3363204/pexels-photo-3363204.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "rating": 4
+  },
+  {
+    "_id": 12,
+    "title": "Black Jacket",
+    "isNew": false,
+    "oldPrice": "200",
+    "price": 140,
+    "description": "A stylish black jacket that adds a bold touch to any outfit. Made with high-quality material for warmth and durability.",
+    "category": "men",
+    "image": "https://images.pexels.com/photos/983497/pexels-photo-983497.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "rating": 3
+  },
+  {
+    "_id": 13,
+    "title": "Black top with jeans",
+    "isNew": false,
+    "oldPrice": "130",
+    "price": 120,
+    "description": "A trendy black top paired with classic blue jeans for a chic and effortless everyday look.",
+    "category": "women",
+    "image": "https://images.pexels.com/photos/3672825/pexels-photo-3672825.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "rating": 4
+  },
+  {
+    "_id": 14,
+    "title": "Clothes with bag",
+    "isNew": false,
+    "oldPrice": "80",
+    "price": 50,
+    "description": "A comfortable and stylish clothing set for kids, complete with a matching bag for added convenience and charm.",
+    "category": "kids",
+    "image": "https://images.pexels.com/photos/36029/aroni-arsa-children-little.jpg?auto=compress&cs=tinysrgb&w=600",
+    "rating": 2
+  },
+  {
+    "_id": 15,
+    "title": "Stylish jeans in light blue",
+    "isNew": false,
+    "oldPrice": "120",
+    "price": 100,
+    "description": "Trendy light blue jeans designed for ultimate comfort and a flattering fit. Perfect for casual wear.",
+    "category": "women",
+    "image": "https://images.pexels.com/photos/2738792/pexels-photo-2738792.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "rating": 4
+  },
+  {
+    "_id": 16,
+    "title": "Unknown horizon",
+    "isNew": false,
+    "oldPrice": "400",
+    "price": 350,
+    "description": "A fashionable and versatile outfit that blends style and comfort, making it suitable for various occasions.",
+    "category": "men",
+    "image": "https://images.pexels.com/photos/2866077/pexels-photo-2866077.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "rating": 4
+  },
+  {
+    "_id": 17,
+    "title": "Light tops",
+    "isNew": false,
+    "oldPrice": "140",
+    "price": 120,
+    "description": "Soft and breathable light tops designed for everyday wear. A must-have for a stylish and comfortable wardrobe.",
+    "category": "women",
+    "image": "https://images.pexels.com/photos/2010925/pexels-photo-2010925.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "rating": 3
+  },
+  {
+    "_id": 18,
+    "title": "Khaki jeans",
+    "isNew": false,
+    "oldPrice": "250",
+    "price": 190,
+    "description": "Trendy khaki-colored jeans crafted for both comfort and style. Ideal for casual and semi-formal looks.",
+    "category": "women",
+    "image": "https://images.pexels.com/photos/3054973/pexels-photo-3054973.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "rating": 4
+  },
+  {
+    "_id": 19,
+    "title": "Black full sleeve",
+    "isNew": false,
+    "oldPrice": "180",
+    "price": 170,
+    "description": "A sleek black full-sleeve top that pairs effortlessly with any outfit. A wardrobe essential for all seasons.",
+    "category": "women",
+    "image": "https://images.pexels.com/photos/2693849/pexels-photo-2693849.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "rating": 3
+  },
+  {
+    "_id": 20,
+    "title": "Formal for Men",
+    "isNew": false,
+    "oldPrice": "500",
+    "price": 490,
+    "description": "A sophisticated formal outfit for men, tailored to provide a sharp and elegant look for business or special occasions.",
+    "category": "men",
+    "image": "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "rating": 5
+  }
+
+],
+"users" : [
+{
+"_id": 1,
+"name": "Leanne Graham",
+"username": "Bret",
+"email": "Sincere@april.biz",
+"address": {
+"street": "Kulas Light",
+"suite": "Apt. 556",
+"city": "Gwenborough",
+"zipcode": "92998-3874",
+"geo": {
+"lat": "-37.3159",
+"lng": "81.1496"
+}
+},
+"phone": "1-770-736-8031 x56442",
+"website": "hildegard.org",
+"company": {
+"name": "Romaguera-Crona",
+"catchPhrase": "Multi-layered client-server neural-net",
+"bs": "harness real-time e-markets"
+}
+},
+{
+"_id": 2,
+"name": "Ervin Howell",
+"username": "Antonette",
+"email": "Shanna@melissa.tv",
+"address": {
+"street": "Victor Plains",
+"suite": "Suite 879",
+"city": "Wisokyburgh",
+"zipcode": "90566-7771",
+"geo": {
+"lat": "-43.9509",
+"lng": "-34.4618"
+}
+},
+"phone": "010-692-6593 x09125",
+"website": "anastasia.net",
+"company": {
+"name": "Deckow-Crist",
+"catchPhrase": "Proactive didactic contingency",
+"bs": "synergize scalable supply-chains"
+}
+},
+{
+"_id": 3,
+"name": "Clementine Bauch",
+"username": "Samantha",
+"email": "Nathan@yesenia.net",
+"address": {
+"street": "Douglas Extension",
+"suite": "Suite 847",
+"city": "McKenziehaven",
+"zipcode": "59590-4157",
+"geo": {
+"lat": "-68.6102",
+"lng": "-47.0653"
+}
+},
+"phone": "1-463-123-4447",
+"website": "ramiro.info",
+"company": {
+"name": "Romaguera-Jacobson",
+"catchPhrase": "Face to face bifurcated interface",
+"bs": "e-enable strategic applications"
+}
+},
+{
+"_id": 4,
+"name": "Patricia Lebsack",
+"username": "Karianne",
+"email": "Julianne.OConner@kory.org",
+"address": {
+"street": "Hoeger Mall",
+"suite": "Apt. 692",
+"city": "South Elvis",
+"zipcode": "53919-4257",
+"geo": {
+"lat": "29.4572",
+"lng": "-164.2990"
+}
+},
+"phone": "493-170-9623 x156",
+"website": "kale.biz",
+"company": {
+"name": "Robel-Corkery",
+"catchPhrase": "Multi-tiered zero tolerance productivity",
+"bs": "transition cutting-edge web services"
+}
+},
+{
+"_id": 5,
+"name": "Chelsey Dietrich",
+"username": "Kamren",
+"email": "Lucio_Hettinger@annie.ca",
+"address": {
+"street": "Skiles Walks",
+"suite": "Suite 351",
+"city": "Roscoeview",
+"zipcode": "33263",
+"geo": {
+"lat": "-31.8129",
+"lng": "62.5342"
+}
+},
+"phone": "(254)954-1289",
+"website": "demarco.info",
+"company": {
+"name": "Keebler LLC",
+"catchPhrase": "User-centric fault-tolerant solution",
+"bs": "revolutionize end-to-end systems"
+}
+},
+{
+"_id": 6,
+"name": "Mrs. Dennis Schulist",
+"username": "Leopoldo_Corkery",
+"email": "Karley_Dach@jasper.info",
+"address": {
+"street": "Norberto Crossing",
+"suite": "Apt. 950",
+"city": "South Christy",
+"zipcode": "23505-1337",
+"geo": {
+"lat": "-71.4197",
+"lng": "71.7478"
+}
+},
+"phone": "1-477-935-8478 x6430",
+"website": "ola.org",
+"company": {
+"name": "Considine-Lockman",
+"catchPhrase": "Synchronised bottom-line interface",
+"bs": "e-enable innovative applications"
+}
+},
+{
+"_id": 7,
+"name": "Kurtis Weissnat",
+"username": "Elwyn.Skiles",
+"email": "Telly.Hoeger@billy.biz",
+"address": {
+"street": "Rex Trail",
+"suite": "Suite 280",
+"city": "Howemouth",
+"zipcode": "58804-1099",
+"geo": {
+"lat": "24.8918",
+"lng": "21.8984"
+}
+},
+"phone": "210.067.6132",
+"website": "elvis.io",
+"company": {
+"name": "Johns Group",
+"catchPhrase": "Configurable multimedia task-force",
+"bs": "generate enterprise e-tailers"
+}
+},
+{
+"_id": 8,
+"name": "Nicholas Runolfsdottir V",
+"username": "Maxime_Nienow",
+"email": "Sherwood@rosamond.me",
+"address": {
+"street": "Ellsworth Summit",
+"suite": "Suite 729",
+"city": "Aliyaview",
+"zipcode": "45169",
+"geo": {
+"lat": "-14.3990",
+"lng": "-120.7677"
+}
+},
+"phone": "586.493.6943 x140",
+"website": "jacynthe.com",
+"company": {
+"name": "Abernathy Group",
+"catchPhrase": "Implemented secondary concept",
+"bs": "e-enable extensible e-tailers"
+}
+},
+{
+"_id": 9,
+"name": "Glenna Reichert",
+"username": "Delphine",
+"email": "Chaim_McDermott@dana.io",
+"address": {
+"street": "Dayna Park",
+"suite": "Suite 449",
+"city": "Bartholomebury",
+"zipcode": "76495-3109",
+"geo": {
+"lat": "24.6463",
+"lng": "-168.8889"
+}
+},
+"phone": "(775)976-6794 x41206",
+"website": "conrad.com",
+"company": {
+"name": "Yost and Sons",
+"catchPhrase": "Switchable contextually-based project",
+"bs": "aggregate real-time technologies"
+}
+},
+{
+"_id": 10,
+"name": "Clementina DuBuque",
+"username": "Moriah.Stanton",
+"email": "Rey.Padberg@karina.biz",
+"address": {
+"street": "Kattie Turnpike",
+"suite": "Suite 198",
+"city": "Lebsackbury",
+"zipcode": "31428-2261",
+"geo": {
+"lat": "-38.2386",
+"lng": "57.2232"
+}
+},
+"phone": "024-648-3804",
+"website": "ambrose.net",
+"company": {
+"name": "Hoeger LLC",
+"catchPhrase": "Centralized empowering task-force",
+"bs": "target end-to-end models"
+}
+}
+]
+}
