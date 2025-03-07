@@ -1,55 +1,275 @@
-import productsArr from "../data.json" with { type: "json" };
-const products = productsArr.products; //for better readability
+import mongoose from "mongoose";
+import productModel from "../models/product.model.js";
 
-//! Product - Controllers/Functions
-export const createProduct=(req,res)=>{
-    const newProduct = { _id: Date.now() , ...req.body};
-    products.push(newProduct);
-    res.status(201).json({ success: true, message:'Product Added Successfully ✅' ,product: newProduct });
-}
+//! Product - Controllers/Functions => CRUD  Functions
 
-export const getAllProducts = (req,res)=>{
-    res.json(products);
-  }
-export const getSingleProductById = (req, res) => {
-  const productId = Number(req.params.id); // Convert to a number
-  const product = products.find((p) => p._id === productId);
+//! C => CREATE
+export const createProduct = async (req, res) => {
+  try {
+    // ✅ Destructure req.body
+    const {
+      title,
+      description,
+      price,
+      discountPercentage,
+      rating,
+      brand,
+      category,
+      thumbnail,
+      images, // ✅ Include images field
+    } = req.body;
 
-  if (!product) {
-    return res.status(404).json({ success: false, message: "Product not found" });
-  }
-
-  res.json({ success: true, product });
-}  
-
-export const updateProduct = (req,res)=>{
-    const productId = Number(req.params.id);
-    const productIdx = products.findIndex((p) => p._id === productId);
-    if(productIdx === -1){
-        return res.status(404).json({ success: false, message: "Product not found" });
+    // ✅ Validate required fields before creating the product
+    if (!title || !price || !brand || !category) {
+      return res
+        .status(400)
+        .json({ success: false, message: "Missing required fields!" });
     }
-    products.splice(productIdx, 1, {_id: productId,...req.body});
-    res.json({ success: true, message: "Product updated successfully ✅", product: products[productIdx] });
-}
 
-export const editProduct = (req,res)=>{
-    const productId = Number(req.params.id);
-    const productIdx = products.findIndex((p) => p._id === productId);
-    const product = products[productIdx];
-    if(productIdx === -1){
-        return res.status(404).json({ success: false, message: "Product not found" });
-    }
-    products.splice(productIdx, 1, {...product, ...req.body});
-    res.json({ success: true, message: "Product updated successfully ✅", product });
-}
+    // ✅ Create a new product instance
+    const product = new productModel({
+      title,
+      description,
+      price,
+      discountPercentage,
+      rating,
+      brand,
+      category,
+      thumbnail,
+      images,
+    });
 
-export const deleteProduct = (req,res)=>{
-    const productId = Number(req.params.id);
-    const productIdx = products.findIndex((p) => p._id === productId);
-    if(productIdx === -1){
-        return res.status(404).json({ success: false, message: "Product not found" });
+    // ✅ Save the product
+    const savedProduct = await product.save();
+
+    // ✅ Send success response
+    res.status(201).json({
+      success: true,
+      message: "Product added successfully ☑️",
+      product: savedProduct,
+    });
+  } catch (err) {
+    console.error(err);
+
+    // ✅ Handle validation errors from Mongoose
+    if (err.name === "ValidationError") {
+      return res.status(400).json({
+        success: false,
+        message: "Validation error 🔴",
+        error: err.errors,
+      });
     }
-    const product = products[productIdx];
-    products.splice(productIdx,1);
-    res.status(201).json({ success: true, message: "Product deleted successfully ✅", product });
+
+    // ✅ Handle other errors
+    return res.status(500).json({
+      success: false,
+      message: "Server error 🔴",
+      error: err.message,
+    });
   }
+};
+
+//! R => READ
+export const getAllProducts = async (req, res) => {
+  try {
+    const products = await productModel.find().lean(); // Use `.lean()` for better performance
+
+    if (products.length === 0) {
+      // Properly check for an empty array
+      return res.status(404).json({
+        success: false,
+        message: "No products found 🌵",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      totalProducts: products.length,
+      message: "All products fetched successfully ✅",
+      products, // Better response key name
+    });
+  } catch (err) {
+    console.error("Error fetching products:", err);
+    return res.status(500).json({
+      success: false,
+      message: "Internal Server Error ❌",
+      error: err.message, // Only send error message for security reasons
+    });
+  }
+};
+
+export const getSingleProductById = async (req, res) => {
+  try {
+    const productId = req.params.id;
+    const product = await productModel.findById(productId).lean();
+    if (!product) {
+      return res.status(404).json({
+        success: false,
+        message: `Product with id: '${productId}' not found ⚠️`,
+      });
+    }
+    res.status(200).json({
+      success: true,
+      message: `Product with id: '${productId}' fetched successfully ✅`,
+      productDetails: product,
+    });
+  } catch (err) {
+    console.error("Error fetching product:", err);
+    // ✅ Handle obj. cast-errors from Mongoose
+    if (err.name === "CastError") {
+      return res.status(400).json({
+        success: false,
+        message:
+          "Invalid productId format. Please provide a valid MONGODB-id ⚠️",
+        error: err.errors,
+      });
+    }
+
+    // ✅ Handle other errors
+    return res.status(500).json({
+      success: false,
+      message: "Server error 🔴",
+      error: err.message,
+    });
+  }
+};
+
+//! U => UPDATE
+export const replaceProduct = async (req, res) => {
+  try {
+    const productId = req.params.id;
+
+    // ✅ Ensure productId is a valid ObjectId
+    if (!mongoose.Types.ObjectId.isValid(productId)) {
+      return res.status(400).json({
+        success: false,
+        message:
+          "Invalid productId format. Please provide a valid MongoDB ObjectId ⚠️",
+      });
+    }
+
+    // ✅ Replace the document and return the updated version
+    const updatedProduct = await productModel.findOneAndReplace(
+      { _id: productId },
+      req.body,
+      { new: true, returnDocument: "after" } // Ensures the updated product is returned
+    );
+
+    // ✅ Check if the product exists
+    if (!updatedProduct) {
+      return res.status(404).json({
+        success: false,
+        message: `Product with id: '${productId}' not found⚠️`,
+      });
+    }
+
+    // ✅ Send success response
+    res.status(200).json({
+      success: true,
+      message: `Product with id: '${productId}' replaced successfully ✅`,
+      updatedProduct,
+    });
+  } catch (err) {
+    console.error("Error replacing product:", err);
+
+    // ✅ Handle Mongoose CastError (invalid ObjectId format)
+    if (err.name === "CastError") {
+      return res.status(400).json({
+        success: false,
+        message:
+          "Invalid productId format. Please provide a valid MongoDB ObjectId ⚠️",
+      });
+    }
+
+    // ✅ Handle other server errors
+    return res.status(500).json({
+      success: false,
+      message: "Server error 🔴",
+      error: err.message,
+    });
+  }
+};
+
+export const editProduct = async (req, res) => {
+  try {
+    const productId = req.params.id;
+    const editedProduct = await productModel.findOneAndUpdate(
+      { _id: productId },
+      req.body,
+      { new: true }
+    );
+    if (!editedProduct) {
+      return res.status(404).json({
+        success: false,
+        message: `Product with id: '${productId}' not found ⚠️`,
+      });
+    }
+    // ✅ Update the fields
+    res.status(200).json({
+      success: true,
+      message: `Product with id: '${productId}' edited successfully ✅`,
+      editedProduct,
+    });
+  } catch (err) {
+    console.error("Error editing product:", err);
+    // ✅ Handle Mongoose CastError (invalid ObjectId format)
+    if (err.name === "CastError") {
+      return res.status(400).json({
+        success: false,
+        message:
+          "Invalid productId format. Please provide a valid MongoDB ObjectId ⚠️",
+      });
+    }
+    // ✅ Handle other server errors
+    return res.status(500).json({
+      success: false,
+      message: "Server error ⚠️",
+      error: err.message,
+    });
+  }
+};
+
+//! D => DELETE
+export const deleteProduct = async (req, res) => {
+  try {
+    const productId = req.params.id;
+    // ✅ Ensure productId is a valid ObjectId
+    if (!mongoose.Types.ObjectId.isValid(productId)) {
+      return res.status(400).json({
+        success: false,
+        message:
+          "Invalid productId format. Please provide a valid MongoDB ObjectId ⚠️",
+      });
+    }
+    // ✅ Delete the product
+    const deletedProduct = await productModel.findByIdAndDelete(productId);
+    if (!deletedProduct) {
+      return res.status(404).json({
+        success: false,
+        message: `Product with id: '${productId}' not found ⚠️`,
+      });
+    }
+    // ✅ Send success response
+    res.status(200).json({
+      success: true,
+      message: `Product with id: '${productId}' deleted successfully ✅`,
+      deletedProduct,
+    });
+  } catch (err) {
+    console.error("Error deleting product:", err);
+    // ✅ Handle Mongoose CastError (invalid ObjectId format)
+    if (err.name === "CastError") {
+      return res.status(400).json({
+        success: false,
+        message:
+          "Invalid productId format. Please provide a valid MongoDB ObjectId ⚠️",
+      });
+    }
+    // ✅ Handle other server errors
+    return res.status(500).json({
+      success: false,
+      message: "Server error 🔴",
+      error: err.message,
+    });
+  }
+};
